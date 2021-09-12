@@ -28,9 +28,6 @@ export default function Installation({id}) {
   // const [python]
 
 
-
-
-
   return (
     <div id={id} className={classes.root}>
       <Typography

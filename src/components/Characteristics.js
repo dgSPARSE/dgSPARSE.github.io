@@ -8,8 +8,8 @@ import UpdateIcon from '@material-ui/icons/Update';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(5),
+    paddingBottom: theme.spacing(5),
   },
   card: {
     maxWidth: 345,

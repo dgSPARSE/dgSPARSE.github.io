@@ -4,8 +4,8 @@ import Image from '../img/dgsparse.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(5),
   },
   img: {
     marginTop: theme.spacing(2),

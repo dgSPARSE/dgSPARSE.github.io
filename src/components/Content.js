@@ -4,6 +4,7 @@ import About from './About';
 import Characteristics from './Characteristics';
 import TeamMembers from './TeamMembers';
 import License from './License';
+import Installation from './Installation';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +25,7 @@ export default function Content() {
     <div className={classes.root}>
       <About id="about"/>
       <Characteristics id="characteristics" />
+      <Installation id="installation"/>
       <TeamMembers id="teammembers"/>
       <License id="license"/>
     </div>

@@ -31,7 +31,7 @@ function App() {
         direction='row' 
         justifyContent="center" 
         alignItems="center"
-        spacing={3}
+        spacing={4}
       >
         <Grid item xs={false} sm={1} />
         <Grid item xs={false} sm={2} className={classes.navigation}>

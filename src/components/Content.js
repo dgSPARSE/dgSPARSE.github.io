@@ -7,10 +7,13 @@ import License from './License';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    paddingTop: theme.spacing(1),
     paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(1),
+    paddingRight: theme.spacing(2),
     border: '1px solid black',
     minHeight: '1800px',
+    width: '90%',
+    margin: '0 auto',
   },
 }));
 

@@ -11,8 +11,10 @@ const navLists = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '80%',
     borderRadius: theme.spacing(1),
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
   },
   button: {
     fontSize: theme.typography.h6.fontSize,
@@ -29,6 +31,7 @@ export default function Navigation() {
 
   return (
     <Paper
+      className={classes.root}
       elevation={1}
     >
       {navLists.map((item) => (

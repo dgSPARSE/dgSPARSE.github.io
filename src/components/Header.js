@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: theme.spacing(2),
-    zIndex: 5,
+    fontSize: theme.typography.body1.fontSize,
   },
 }));
 
@@ -102,7 +102,7 @@ export default function Header() {
   return (
     <Paper
       className={classes.root}
-      elevation={2}
+      elevation={1}
     >
       <BackgroundImage />
       <div className={classes.content}>

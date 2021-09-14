@@ -1,11 +1,10 @@
-import { Button, IconButton, List, ListItem, ListItemText, makeStyles, Typography } from '@material-ui/core'
+import { makeStyles, Typography } from '@material-ui/core'
 import React from 'react';
-import PersonIcon from '@material-ui/icons/Person';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(4),
+    // paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
   },
   hover: {
@@ -16,7 +15,10 @@ const useStyles = makeStyles((theme) => ({
   },
   listTypography: {
     paddingLeft: theme.spacing(1),
-  }
+  },
+  title: {
+    fontFamily: 'Rubik, sans-serif',
+  },
 }));
 
 // convert data into object. 
@@ -69,12 +71,13 @@ export default function Team({id}) {
         variant="h3"
         display="block"
         gutterBottom={true}
+        className={classes.title}
       >
         Our Team
       </Typography>
       <ul>
         {data.map((member) => 
-          <Person {...member}/>
+          <Person key={member.name} {...member}/>
         )}
       </ul>
     </div>

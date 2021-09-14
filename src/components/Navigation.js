@@ -8,10 +8,9 @@ const createData = (name, href) => {
 
 const navLists = [
   createData('about', 'about'),
-  createData('characteristics', 'characteristics'),
+  createData('highlights', 'highlights'),
   createData('installation', 'installation'),
   createData('our team', 'team'),
-  createData('license', 'license'),
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -20,10 +19,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'transparent',
   },
   button: {
-    fontSize: theme.typography.h6.fontSize,
+    fontSize: theme.typography.h5.fontSize,
     width: '100%',
     paddingTop: theme.spacing(3.5),
     paddingBottom: theme.spacing(3.5),
+    fontFamily: 'Rubik, sans-serif',
   }
 }));
 

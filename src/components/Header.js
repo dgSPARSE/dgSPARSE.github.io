@@ -83,6 +83,7 @@ export default function Header() {
         size="large"
         variant="contained"
         startIcon={<GetAppIcon/>}
+        href="#installation"
       > 
         Install
       </Button>
@@ -97,6 +98,7 @@ export default function Header() {
         size="large"
         variant="contained"
         startIcon={<GitHubIcon/>}
+        href="https://github.com/dgSPARSE"
       > 
         Github
       </Button>

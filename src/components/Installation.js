@@ -21,45 +21,10 @@ const commands = [
 ];
 
 
-// title
-const Title = () => {
-  return (
-    <Typography
-      variant="h3"
-      display="block"
-      gutterBottom={true}
-    >
-      Installation
-    </Typography>
-  );
-}
-
-// minimum os requirement
-const MinimumRequirement = () => {
-  const classes = useStyles();
-
-  return (
-    <div className={classes.gapsBottom}>
-      <Typography variant='body1'>
-        The minimum os requirement is:
-      </Typography>
-      <ul>
-        <li><Typography variant='body1'>All linux distribution no earlier than Ubuntu 16.04</Typography></li>
-        <li><Typography variant='body1'>macOS version 10.14+</Typography></li>
-        <li><Typography variant='body1'>Windows 10 version 1507+</Typography></li>
-      </ul>
-      <Typography variant='body1'>
-        Python version 3.6+
-      </Typography>
-    </div>
-  );
-};
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
+    // paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(6),
   },
   tabGrid: {
     paddingBottom: theme.spacing(1),
@@ -86,7 +51,10 @@ const useStyles = makeStyles((theme) => ({
   },
   steps: {
     width: '90%',
-  }
+  },
+  title: {
+    fontFamily: 'Rubik, sans-serif',
+  },
 }));
 
 const OptionTabs = ({content, label, onChange, value, idx}) => {
@@ -156,6 +124,45 @@ export default function Installation({id}) {
     setValues(newValues);
     setSteps(findSteps(newValues)); // foce to update with new values immediately. 
   };
+
+  // title
+  const Title = () => {
+    return (
+      <Typography
+        variant="h3"
+        display="block"
+        gutterBottom={true}
+        className={classes.title}
+      >
+        Installation
+      </Typography>
+    );
+  }
+
+  // minimum os requirement
+  const MinimumRequirement = () => {
+    const classes = useStyles();
+
+    return (
+      <div className={classes.gapsBottom}>
+        <Typography variant='body1'>
+          The minimum os requirement is:
+        </Typography>
+        <ul>
+          <li><Typography variant='body1'>All linux distribution no earlier than Ubuntu 16.04</Typography></li>
+          <li><Typography variant='body1'>macOS version 10.14+</Typography></li>
+          <li><Typography variant='body1'>Windows 10 version 1507+</Typography></li>
+        </ul>
+        <Typography variant='body1'>
+          Python version 3.6+
+        </Typography>
+      </div>
+    );
+  };
+
+
+
+
 
   const Steps = () => {
     if (steps.length === 0) {

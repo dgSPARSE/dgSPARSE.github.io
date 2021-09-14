@@ -5,7 +5,7 @@ import Image from '../img/dgsparse.png';
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(5),
+    paddingBottom: theme.spacing(6),
   },
   img: {
     display: 'block',
@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     width: '90%',
     objectFit: 'contain',
     paddingTop: theme.spacing(1),
+  },
+  title: {
+    fontFamily: 'Rubik, sans-serif',
   },
 }));
 
@@ -22,6 +25,7 @@ export default function About({id}) {
   return (
     <div id={id} className={classes.root}>
       <Typography
+        className={classes.title}
         variant="h3"
         display="block"
         gutterBottom={true}

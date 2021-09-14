@@ -1,9 +1,8 @@
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
 import About from './About';
-import Characteristics from './Characteristics';
+import Highlights from './Highlights';
 import Team from './Team';
-import License from './License';
 import Installation from './Installation';
 
 const useStyles = makeStyles((theme) => ({
@@ -11,8 +10,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(1),
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
-    border: '1px solid black',
-    minHeight: '1800px',
+    // border: '1px solid black',
     width: '90%',
     margin: '0 auto',
   },
@@ -27,10 +25,9 @@ export default function Content() {
   return (
     <div className={classes.root}>
       <About id="about"/>
-      <Characteristics id="characteristics" />
+      <Highlights id="highlights" />
       <Installation id="installation"/>
       <Team id="team"/>
-      <License id="license"/>
     </div>
   )
 }

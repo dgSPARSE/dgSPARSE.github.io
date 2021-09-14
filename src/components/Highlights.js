@@ -8,8 +8,8 @@ import UpdateIcon from '@material-ui/icons/Update';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
+    // paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(6),
   },
   grid: {
     paddingTop: theme.spacing(2),
@@ -32,7 +32,10 @@ const useStyles = makeStyles((theme) => ({
     color: '#f05f40db', // '#9e9e9e'
     margin: '0 auto',
     paddingBottom: theme.spacing(3),
-  }
+  },
+  title: {
+    fontFamily: 'Rubik, sans-serif',
+  },
 }));
 
 
@@ -92,8 +95,9 @@ export default function Characteristics({id}) {
         variant="h3"
         display="block"
         gutterBottom={true}
+        className={classes.title}
       >
-        Characteristics
+        Highlights
       </Typography>
       <Grid 
         className={classes.grid}

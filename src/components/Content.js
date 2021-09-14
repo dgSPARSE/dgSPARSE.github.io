@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core'
 import React from 'react'
 import About from './About';
 import Characteristics from './Characteristics';
-import TeamMembers from './TeamMembers';
+import Team from './Team';
 import License from './License';
 import Installation from './Installation';
 
@@ -29,7 +29,7 @@ export default function Content() {
       <About id="about"/>
       <Characteristics id="characteristics" />
       <Installation id="installation"/>
-      <TeamMembers id="team"/>
+      <Team id="team"/>
       <License id="license"/>
     </div>
   )

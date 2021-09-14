@@ -100,7 +100,7 @@ const OptionTabs = ({content, label, onChange, value, idx}) => {
       alignItems="center"
       justifyContent="flex-start"
     >
-      <Grid item xs={2} spacing={2}>
+      <Grid item xs={2}>
         <Typography variant="body1" style={{textAlign: "center"}}>{label}</Typography>
       </Grid>
       <Grid item xs={10}>

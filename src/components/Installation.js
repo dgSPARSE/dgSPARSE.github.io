@@ -1,5 +1,7 @@
-import { Grid, makeStyles, Paper, Tab, Tabs, Typography } from '@material-ui/core';
-import React from 'react'
+import { Grid, IconButton, makeStyles, Paper, Snackbar, Tab, Tabs, Typography } from '@material-ui/core';
+import React from 'react';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 
 
 // function to convert commands into object
@@ -9,7 +11,7 @@ const createData = (cuda, os, python, ...steps) => {
 
 // put all your installation commands here !!!
 const commands = [
-  createData('10.1', 'Linux', '3.6', 'conda install -c dgsparse 10.1 linux 3.6'),
+  createData('10.1', 'Linux', '3.6', 'conda install -c dgsparse 10.1 linux 3.6', 'conda install -c dgsparse 10.1 linux 3.6', 'conda install -c dgsparse 10.1 linux 3.6'),
   createData('10.1', 'Mac', '3.6', 'conda -install -c dgsparse 10.1 mac 3.6'),
   createData('10.1', 'Windows', '3.6', 'conda -install -c dgsparse 10.1 windows 3.6'),
 
@@ -17,22 +19,6 @@ const commands = [
   createData('10.1', 'Mac', '3.7', 'conda -install -c dgsparse 10.1 mac 3.7'),
   createData('10.1', 'Windows', '3.7', 'conda -install -c dgsparse 10.1 windows 3.7'),
 ];
-
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  tabs: {
-    display: 'inline-block',
-  },
-  paper: {
-    marginTop: theme.spacing(1),
-    padding: theme.spacing(1),
-    paddingLeft: theme.spacing(2),
-  }
-}));
 
 
 // title
@@ -50,11 +36,10 @@ const Title = () => {
 
 // minimum os requirement
 const MinimumRequirement = () => {
+  const classes = useStyles();
+
   return (
-    <div>
-      <Typography variant='h5' gutterBottom={true}>
-        System Requirement
-      </Typography>
+    <div className={classes.gapsBottom}>
       <Typography variant='body1'>
         The minimum os requirement is:
       </Typography>
@@ -70,26 +55,61 @@ const MinimumRequirement = () => {
   );
 };
 
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+  },
+  tabGrid: {
+    paddingBottom: theme.spacing(1),
+  },
+  paper: {
+    marginTop: theme.spacing(3),
+    padding: theme.spacing(2),
+    paddingLeft: theme.spacing(2),
+    backgroundColor: '#eeeeee',
+    position: 'relative',         // for thhe icon button to stick to the top right corner
+  },
+  gapsBottom: {
+    paddingBottom: theme.spacing(2),
+  },
+  iconButton: {
+    position: 'absolute',
+    top: '0',
+    right: '0',                   // the icon button sticks to the top right corner 
+  }
+}));
+
 const OptionTabs = ({content, label, onChange, value, idx}) => {
-  // const classes = useStyles();
+  const classes = useStyles();
 
   return (
-    <div
+    <Grid
+      className={classes.tabGrid}
+      container
+      direction="row"
+      alignItems="center"
+      justifyContent="flex-start"
     >
-      <Typography variant="body1">{label}</Typography>
-      <Tabs
-        onChange={(e, newValue) => onChange(idx, newValue)}
-        indicatorColor="primary"
-        textColor="primary"
-        value={value}
-      >
-        {content.map((c) => {
-          return (
-            <Tab key={c} label={c}/>
-          );
-        })}
-      </Tabs>
-    </div>
+      <Grid item xs={2}>
+        <Typography variant="body1" style={{textAlign: "center"}}>{label}</Typography>
+      </Grid>
+      <Grid item xs={10}>
+        <Tabs
+          onChange={(e, newValue) => onChange(idx, newValue)}
+          indicatorColor="primary"
+          textColor="primary"
+          value={value}
+        >
+          {content.map((c) => {
+            return (
+              <Tab key={c} label={c}/>
+            );
+          })}
+        </Tabs>
+      </Grid>
+    </Grid>
   );
 }
 
@@ -136,12 +156,38 @@ export default function Installation({id}) {
     else {
       return (
         <React.Fragment>
-          {steps.map((s) => 
-            <Typography key={s}>{s}</Typography>
+          {steps.map((s, idx) => 
+            <Typography key={idx}>{s}</Typography>
           )}
         </React.Fragment>
       );
     }
+  }
+
+  // after copy, a simple toast message using snackbar
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [msg, setMsg] = React.useState("");
+
+  // copy the current "steps" in the clipboard
+  const copyFunc = async (text) => {
+    if ('clipboard' in navigator) {
+      return await navigator.clipboard.writeText(text);
+    } else {
+      return document.execCommand('copy', true, text);
+    }
+  }
+
+  const copyToClipboard = async () => {
+    const allCommands = steps.join('\n');
+    copyFunc(allCommands)
+      .then(() => {
+        setMsg("Copied to clipboard &#10003;");
+      })
+      .catch((e) => {
+        setMsg("Oops something wrong. Please copy manually &#9785;");
+      });
+    
+    setIsOpen(true);
   }
 
 
@@ -149,15 +195,36 @@ export default function Installation({id}) {
     <div id={id} className={classes.root}>
       <Title />
       <MinimumRequirement/>
+
+      <Typography variant="body1" gutterBottom={true}>Choose from the following:</Typography>
       <OptionTabs label="CUDA" content={cudaArray} value={values[0]} onChange={onChange} idx={0}/>
       <OptionTabs label="OS" content={osArray} value={values[1]} onChange={onChange} idx={1}/>
       <OptionTabs label="Python" content={pythonArray} value={values[2]} onChange={onChange} idx={2}/>
+
       <Paper
         className={classes.paper}
         elevation={1}
       >
         <Steps/>
+        <IconButton
+          className={classes.iconButton}
+          onClick={copyToClipboard}
+        >
+          {isOpen ? <AssignmentTurnedInIcon/> : <AssignmentIcon/>}
+        </IconButton>
       </Paper>
+
+      <Snackbar
+        open={isOpen}
+        autoHideDuration={2000}
+        onClose={() => setIsOpen(false)}
+        message={msg}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+      />
     </div>
   )
-}
+};
+

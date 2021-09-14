@@ -19,11 +19,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function About({id}) {
+export default function About({innerRef}) {
   const classes = useStyles();
 
   return (
-    <div id={id} className={classes.root}>
+    <div  
+      ref={innerRef}
+      className={classes.root}
+    >
       <Typography
         className={classes.title}
         variant="h3"

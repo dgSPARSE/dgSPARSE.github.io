@@ -41,7 +41,7 @@ const data = [
 ];
 
 
-export default function Team({id}) {
+export default function Team({innerRef}) {
   const classes = useStyles();
 
   const Person = ({name, uni, href}) => {
@@ -66,7 +66,7 @@ export default function Team({id}) {
   }
 
   return (
-    <div id={id} className={classes.root}>
+    <div ref={innerRef} className={classes.root}>
       <Typography
         variant="h3"
         display="block"

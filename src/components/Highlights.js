@@ -44,7 +44,7 @@ const createData = (name, description, icon) => {
 };
 
 
-export default function Characteristics({id}) {
+export default function Characteristics({innerRef}) {
   const classes = useStyles();
 
   // to add more characteristics, append here. 
@@ -90,7 +90,7 @@ export default function Characteristics({id}) {
   };
 
   return (
-    <div className={classes.root} id={id}>
+    <div className={classes.root} ref={innerRef}>
       <Typography
         variant="h3"
         display="block"

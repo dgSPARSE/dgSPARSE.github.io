@@ -90,7 +90,7 @@ const OptionTabs = ({content, label, onChange, value, idx}) => {
 }
 
 
-export default function Installation({id}) {
+export default function Installation({innerRef}) {
   const classes = useStyles();
 
   // obtain all distinct options
@@ -161,9 +161,6 @@ export default function Installation({id}) {
   };
 
 
-
-
-
   const Steps = () => {
     if (steps.length === 0) {
       return ""
@@ -206,8 +203,11 @@ export default function Installation({id}) {
   }
   
 
+  // the other components can simply use ref to scroll,
+  // only this installation component needs to add the id,
+  // so make it easier for the button in the Header to locate the scroll.
   return (
-    <div id={id} className={classes.root}>
+    <div ref={innerRef} className={classes.root} id='installation'>
       <Title />
       <MinimumRequirement/>
 

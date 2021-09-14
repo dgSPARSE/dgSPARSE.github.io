@@ -181,15 +181,15 @@ export default function Installation({id}) {
     const allCommands = steps.join('\n');
     copyFunc(allCommands)
       .then(() => {
-        setMsg("Copied to clipboard &#10003;");
+        setMsg("Copied to clipboard ✓");
       })
       .catch((e) => {
-        setMsg("Oops something wrong. Please copy manually &#9785;");
+        setMsg("Oops something wrong. Please copy manually ☹");
       });
     
     setIsOpen(true);
   }
-
+  
 
   return (
     <div id={id} className={classes.root}>

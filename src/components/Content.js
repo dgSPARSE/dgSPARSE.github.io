@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+// here the id should be the same as in Navigation.js
+
 export default function Content() {
   const classes = useStyles();
 
@@ -26,7 +29,7 @@ export default function Content() {
       <About id="about"/>
       <Characteristics id="characteristics" />
       <Installation id="installation"/>
-      <TeamMembers id="teammembers"/>
+      <TeamMembers id="team"/>
       <License id="license"/>
     </div>
   )

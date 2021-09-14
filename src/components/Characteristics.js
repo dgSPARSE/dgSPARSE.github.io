@@ -8,15 +8,20 @@ import UpdateIcon from '@material-ui/icons/Update';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(5),
-    paddingBottom: theme.spacing(5),
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+  },
+  grid: {
+    paddingTop: theme.spacing(2),
   },
   card: {
     maxWidth: 345,
     height: '100%',
   },
   cardArea: {
+    height: '100%',
     padding: theme.spacing(3),
+    paddingTop: theme.spacing(5),
     textAlign: 'center',
   },
   text: {
@@ -91,6 +96,7 @@ export default function Characteristics({id}) {
         Characteristics
       </Typography>
       <Grid 
+        className={classes.grid}
         container
         direction="row"
         justifyContent="space-around"

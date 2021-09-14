@@ -9,7 +9,8 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100vw',
-    height: '61.8vh'
+    height: '61.8vh',
+    display: 'block',
   },
   img: {
     opacity: 0.25,
@@ -102,7 +103,7 @@ export default function Header() {
   return (
     <Paper
       className={classes.root}
-      elevation={1}
+      elevation={2}
     >
       <BackgroundImage />
       <div className={classes.content}>

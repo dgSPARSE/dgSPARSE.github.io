@@ -7,16 +7,22 @@ import Content from './components/Content';
 import { Grid, makeStyles } from "@material-ui/core";
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   mainContent: {
-    marginTop: 50,
+    backgroundColor: '#fcfcfc',
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: theme.spacing(8),
+    },
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: theme.spacing(0.5),
+    }
   },
   navigation: {
     position: 'sticky',
     alignSelf: 'start',
     top: '2.5em',
   },
-});
+}));
 
 
 function App() {

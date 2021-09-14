@@ -66,8 +66,13 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     marginTop: theme.spacing(3),
-    padding: theme.spacing(2),
-    paddingLeft: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(2),
+      paddingLeft: theme.spacing(3),
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(1),
+    },
     backgroundColor: '#eeeeee',
     position: 'relative',         // for thhe icon button to stick to the top right corner
   },
@@ -77,7 +82,10 @@ const useStyles = makeStyles((theme) => ({
   iconButton: {
     position: 'absolute',
     top: '0',
-    right: '0',                   // the icon button sticks to the top right corner 
+    right: '0',                   // the icon button sticks to the top right corner
+  },
+  steps: {
+    width: '90%',
   }
 }));
 
@@ -92,7 +100,7 @@ const OptionTabs = ({content, label, onChange, value, idx}) => {
       alignItems="center"
       justifyContent="flex-start"
     >
-      <Grid item xs={2}>
+      <Grid item xs={2} spacing={2}>
         <Typography variant="body1" style={{textAlign: "center"}}>{label}</Typography>
       </Grid>
       <Grid item xs={10}>
@@ -157,7 +165,7 @@ export default function Installation({id}) {
       return (
         <React.Fragment>
           {steps.map((s, idx) => 
-            <Typography key={idx}>{s}</Typography>
+            <Typography className={classes.steps} key={idx}>{s}</Typography>
           )}
         </React.Fragment>
       );

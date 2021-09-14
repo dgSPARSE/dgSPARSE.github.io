@@ -8,7 +8,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100vw',
+    width: '100%',
     height: '61.8vh',
     display: 'block',
   },
@@ -23,10 +23,15 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     position: 'absolute',
-    top: '30%',
+    textAlign: 'center',
+    [theme.breakpoints.up('sm')]: {
+      top: '30%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      top: '35%',
+    },
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    textAlign: 'center',
   },
   title: {
     fontFamily: 'Libre Baskerville, serif',

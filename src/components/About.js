@@ -29,7 +29,7 @@ export default function About({id}) {
         About
       </Typography>
       <Typography
-        variant="h6"
+        variant="body1"
         paragraph={true}
         component="p"
       >

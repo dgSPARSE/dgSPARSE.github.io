@@ -25,21 +25,21 @@ export default function Footer() {
         component='p'
         className={classes.text}
       >
-        @dgSparse is licensed under the Apache License 2.0.
+        © dgSparse is licensed under the Apache License 2.0.
       </Typography>
       <Link
         className={classes.text}
         variant='caption'
         href='https://github.com/dgSPARSE'
       >
-        @Contact: dgSparse
+        @ Contact: dgSparse
       </Link>
       <Link
         className={classes.text}
         variant='caption'
         href='https://github.com/luke-mao'
       >
-        @Author: Luke
+        @ Author: Luke
       </Link>
     </div>
   )

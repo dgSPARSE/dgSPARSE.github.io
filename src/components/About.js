@@ -1,6 +1,7 @@
-import { makeStyles, Typography } from '@material-ui/core'
+import { Link, makeStyles, Typography } from '@material-ui/core'
 import React from 'react'
 import Image from '../img/dgsparse.png';
+import { grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     fontFamily: 'Rubik, sans-serif',
   },
+  citation: {
+    color: grey[600],
+    paddingTop: theme.spacing(1),
+  }
 }));
 
 export default function About({innerRef}) {
@@ -44,6 +49,21 @@ export default function About({innerRef}) {
         Currently dgSPARSE provides dgSPARSE Wrapper and dgSPARSE Library.
       </Typography>
       <img className={classes.img} alt="dg sparse" src={Image}/>
+      <Link
+        href="https://nicsefc.ee.tsinghua.edu.cn/media/publications/2020/SC20_320.pdf"
+        variant='caption'
+        className={classes.citation}
+      >
+        © Guyue Huang, Guohao Dai, et al. "GE-SpMM: General-purpose Sparse Matrix-Matrix Multiplication on GPUs for Graph Neural Networks", in SC 2020.
+      </Link>
+      <br/>
+      <Link
+        variant='caption'
+        className={classes.citation}
+        href="https://arxiv.org/abs/2103.00959"
+      >
+        © Yukuo Cen, Zhenyu Hou, et al. "CogDL: An Extensive Toolkit for Deep Learning on Graphs", in arXiv. Link.
+      </Link>
     </div>
   )
 }

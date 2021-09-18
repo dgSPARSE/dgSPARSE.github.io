@@ -41,9 +41,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#eeeeee',
     position: 'relative',         // for thhe icon button to stick to the top right corner
   },
-  gapsBottom: {
-    paddingBottom: theme.spacing(2),
-  },
+  // gapsBottom: {
+  //   paddingBottom: theme.spacing(2),
+  // },
   iconButton: {
     position: 'absolute',
     top: '0',
@@ -141,22 +141,16 @@ export default function Installation({innerRef}) {
 
   // minimum os requirement
   const MinimumRequirement = () => {
-    const classes = useStyles();
-
     return (
-      <div className={classes.gapsBottom}>
-        <Typography variant='body1'>
-          The minimum os requirement is:
-        </Typography>
+      <Typography variant='body1'>
+        The minimum system requirement is:
         <ul>
-          <li><Typography variant='body1'>All linux distribution no earlier than Ubuntu 16.04</Typography></li>
-          <li><Typography variant='body1'>macOS version 10.14+</Typography></li>
-          <li><Typography variant='body1'>Windows 10 version 1507+</Typography></li>
+          <li>All linux distribution no earlier than Ubuntu 16.04</li>
+          <li>macOS version 10.14+</li>
+          <li>Windows 10 version 1507+</li>
+          <li>Python version 3.6+</li>
         </ul>
-        <Typography variant='body1'>
-          Python version 3.6+
-        </Typography>
-      </div>
+      </Typography>
     );
   };
 
@@ -211,7 +205,7 @@ export default function Installation({innerRef}) {
       <Title />
       <MinimumRequirement/>
 
-      <Typography variant="body1" gutterBottom={true}>Choose from the following:</Typography>
+      <Typography variant="body1">Choose from the following:</Typography>
       <OptionTabs label="CUDA" content={cudaArray} value={values[0]} onChange={onChange} idx={0}/>
       <OptionTabs label="OS" content={osArray} value={values[1]} onChange={onChange} idx={1}/>
       <OptionTabs label="Python" content={pythonArray} value={values[2]} onChange={onChange} idx={2}/>

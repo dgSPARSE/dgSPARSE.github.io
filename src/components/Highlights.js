@@ -1,4 +1,4 @@
-import { Card, CardActionArea, makeStyles, Typography } from '@material-ui/core';
+import { Card, CardContent, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -70,7 +70,7 @@ export default function Characteristics({innerRef}) {
   const CharacteristicCard = ({name, description, icon}) => {
     return (
       <Card className={classes.card}>
-        <CardActionArea className={classes.cardArea}>
+        <CardContent className={classes.cardArea}>
           {icon}
           <Typography
             variant="h5"
@@ -84,7 +84,7 @@ export default function Characteristics({innerRef}) {
           >
             {description}
           </Typography>
-        </CardActionArea>
+        </CardContent>
       </Card>
     );
   };

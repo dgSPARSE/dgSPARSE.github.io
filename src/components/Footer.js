@@ -34,13 +34,6 @@ export default function Footer() {
       >
         @ Contact: dgSparse
       </Link>
-      <Link
-        className={classes.text}
-        variant='caption'
-        href='https://github.com/luke-mao'
-      >
-        @ Author: Luke
-      </Link>
     </div>
   )
 }

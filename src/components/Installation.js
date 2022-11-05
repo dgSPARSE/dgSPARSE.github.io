@@ -11,13 +11,21 @@ const createData = (cuda, os, python, ...steps) => {
 
 // put all your installation commands here !!!
 const commands = [
-  createData('10.1', 'Linux', '3.6', 'conda install -c dgsparse 10.1 linux 3.6', 'conda install -c dgsparse 10.1 linux 3.6', 'conda install -c dgsparse 10.1 linux 3.6'),
-  createData('10.1', 'Mac', '3.6', 'conda -install -c dgsparse 10.1 mac 3.6'),
-  createData('10.1', 'Windows', '3.6', 'conda -install -c dgsparse 10.1 windows 3.6'),
+  createData('10.1', 'Linux', '3.6', 'conda install dgsparse'),
+  createData('10.1', 'Mac', '3.6', 'conda install dgsparse'),
+  createData('10.1', 'Windows', '3.6', 'conda install dgsparse'),
 
-  createData('10.1', 'Linux', '3.7', 'conda install -c dgsparse 10.1 linux 3.7'),
-  createData('10.1', 'Mac', '3.7', 'conda -install -c dgsparse 10.1 mac 3.7'),
-  createData('10.1', 'Windows', '3.7', 'conda -install -c dgsparse 10.1 windows 3.7'),
+  createData('10.1', 'Linux', '3.7', 'conda install dgsparse'),
+  createData('10.1', 'Mac', '3.7', 'conda install dgsparse'),
+  createData('10.1', 'Windows', '3.7', 'conda install dgsparse'),
+
+  createData('10.2', 'Linux', '3.6', 'conda install dgsparse'),
+  createData('10.2', 'Mac', '3.6', 'conda install dgsparse'),
+  createData('10.2', 'Windows', '3.6', 'conda install dgsparse'),
+
+  createData('10.2', 'Linux', '3.7', 'conda install dgsparse'),
+  createData('10.2', 'Mac', '3.7', 'conda install dgsparse'),
+  createData('10.2', 'Windows', '3.7', 'conda install dgsparse'),
 ];
 
 

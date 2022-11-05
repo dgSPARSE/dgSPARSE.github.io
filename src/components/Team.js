@@ -31,13 +31,18 @@ const createData = (name, uni, href) => {
 // some members does not have the href, can simply add the github profile page.
 // so for now, some href is undefined
 const data = [
-  createData('Guohao Dai', 'Tsinghua University', 'https://nicsefc.ee.tsinghua.edu.cn/people/guohao-dai/'),
+  createData('Guohao Dai', 'Shanghai Jiao Tong University', 'https://nicsefc.ee.tsinghua.edu.cn/people/guohao-dai/'),
+  createData('Zhongming Yu', 'University of California, San Diego', 'https://fishmingyu.github.io/'),
   createData('Guyue Huang', 'University of California, Santa Barbara', 'https://hgyhungry.github.io/'),
-  createData('Zhongming Yu', 'Tsinghua University', 'https://fishmingyu.github.io/'),
-  createData('Hengrui Zhang', 'Tsinghua University'),
+  createData('Hengrui Zhang', 'Princeton University'),
+  createData('Tianyu Fu', 'Tsinghua University', 'http://nicsefc.ee.tsinghua.edu.cn/people/TianyuFu'),
+  createData('Genghan Zhang', 'Tsinghua University', 'https://zhang677.github.io/'),
   createData('Shang Yang', 'Tsinghua University'),
-  createData('Jiajie Li', 'Tsinghua University', 'https://tonyjie.github.io/'),
-  createData('Yu Wang', 'Tsinghua University'),
+  createData('Jiaming Xu', 'Shanghai Jiao Tong University', 'https://mathscode.github.io/'),
+  createData('Tianqi Wu', 'Tsinghua University'),
+  createData('Yibing Zhang', 'Tsinghua University'),
+  createData('Jishen Zhao', 'University of California, San Diego', 'https://cseweb.ucsd.edu/~jzhao/'),
+  createData('Yu Wang', 'Tsinghua University', 'http://nicsefc.ee.tsinghua.edu.cn/people/YuWang'),
 ];
 
 

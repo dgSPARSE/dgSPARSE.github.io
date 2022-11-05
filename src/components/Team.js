@@ -1,4 +1,4 @@
-import { makeStyles, Typography } from '@material-ui/core'
+import { Link, makeStyles, Typography } from '@material-ui/core'
 import React from 'react';
 
 
@@ -23,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
 
 // convert data into object. 
 // some href may be undefined
-const createData = (name, uni, href) => {
-  return {name, uni, href};
+const createData = (name, uni, refer) => {
+  return {name, uni, refer};
 }
 
 // edit the data here !!!
@@ -49,8 +49,8 @@ const data = [
 export default function Team({innerRef}) {
   const classes = useStyles();
 
-  const Person = ({name, uni, href}) => {
-    if (typeof href === 'undefined') {
+  const Person = ({name, uni, refer}) => {
+    if (typeof refer === 'undefined') {
       return (
         <li>
           <Typography variant="body1" className={classes.listTypography}>
@@ -62,9 +62,9 @@ export default function Team({innerRef}) {
     else {
       return (
         <li className={classes.hover}>
-          <Typography variant="body1" className={classes.listTypography}>
+          <Link variant="body1" className={classes.listTypography} href={refer}>
             {`${name} (${uni})`}
-          </Typography>
+          </Link>
         </li>
       );
     }

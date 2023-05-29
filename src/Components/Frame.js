@@ -1,14 +1,12 @@
 import { Button, Grid, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import Image from "../img/sparse_graph_1.jpg";
-import GetAppIcon from "@material-ui/icons/GetApp";
-import GitHubIcon from "@material-ui/icons/GitHub";
+import Image from "../img/sparse_graph_2.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    height: "61.8vh",
+    height: "22.8vh",
     display: "block",
   },
   img: {
@@ -23,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     textAlign: "center",
     [theme.breakpoints.up("sm")]: {
-      top: "35%",
+      top: "20%",
     },
     [theme.breakpoints.down("sm")]: {
       top: "35%",
@@ -32,30 +30,28 @@ const useStyles = makeStyles((theme) => ({
     transform: "translate(-50%, -50%)",
   },
   title: {
+    textAlign: "center",
+    fontWeight: "bold",
     fontFamily: "Libre Baskerville, serif",
   },
   subtitle: {
     fontFamily: "Libre Baskerville, serif",
-    fontWeight: "bold",
-  },
-  button: {
-    margin: theme.spacing(2),
-    fontSize: theme.typography.body1.fontSize,
+    textAlign: "center",
   },
 }));
 
-export default function Header() {
+export default function Frame({ title, subtitle }) {
   const classes = useStyles();
 
   const Title = () => {
     return (
       <Typography
         className={classes.title}
-        variant="h1"
+        variant="h3"
         paragraph={true}
         gutterBottom={true}
       >
-        dgSPARSE
+        {title}
       </Typography>
     );
   };
@@ -68,38 +64,8 @@ export default function Header() {
         paragraph={true}
         gutterBottom={true}
       >
-        Easy and Fast Sparse Graph Processing
+        {subtitle}
       </Typography>
-    );
-  };
-
-  const BtnInstall = () => {
-    return (
-      <Button
-        className={classes.button}
-        color="primary"
-        size="large"
-        variant="contained"
-        startIcon={<GetAppIcon />}
-        href="/installation"
-      >
-        Install
-      </Button>
-    );
-  };
-
-  const BtnGithub = () => {
-    return (
-      <Button
-        className={classes.button}
-        color="primary"
-        size="large"
-        variant="contained"
-        startIcon={<GitHubIcon />}
-        href="https://github.com/dgSPARSE"
-      >
-        Github
-      </Button>
     );
   };
 
@@ -114,10 +80,6 @@ export default function Header() {
         <div className={classes.content} elevation={5}>
           <Title />
           <SubTitle />
-          <div>
-            <BtnInstall />
-            <BtnGithub />
-          </div>
         </div>
       </Paper>
     </Grid>

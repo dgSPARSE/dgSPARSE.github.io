@@ -11,6 +11,7 @@ import {
 import React from "react";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
+import Frame from "./Frame";
 
 // function to convert commands into object
 const createData = (cuda, os, python, ...steps) => {
@@ -106,6 +107,8 @@ const OptionTabs = ({ content, label, onChange, value, idx }) => {
 
 export default function Installation() {
   const classes = useStyles();
+  const title = "Installation";
+  const subtitle = "Get started with dgSPARSE";
 
   // obtain all distinct options
   const cudaArray = [...new Set(commands.map((c) => c.cuda))].sort();
@@ -138,20 +141,6 @@ export default function Installation() {
     newValues[idx] = newValue;
     setValues(newValues);
     setSteps(findSteps(newValues)); // foce to update with new values immediately.
-  };
-
-  // title
-  const Title = () => {
-    return (
-      <Typography
-        variant="h3"
-        display="block"
-        gutterBottom={true}
-        className={classes.title}
-      >
-        Installation
-      </Typography>
-    );
   };
 
   // minimum os requirement
@@ -215,51 +204,56 @@ export default function Installation() {
   // only this installation component needs to add the id,
   // so make it easier for the button in the Header to locate the scroll.
   return (
-    <Grid item container direction="row" justifyContent="space-around">
-      <Grid item xs={12} sm={8} className={classes.root} id="installation">
-        <Title />
-        <MinimumRequirement />
+    <Grid>
+      <Frame title={title} subtitle={subtitle} />
+      <Grid item container direction="row" justifyContent="space-around">
+        <Grid item xs={12} sm={8} className={classes.root} id="installation">
+          <MinimumRequirement />
 
-        <Typography variant="body1">Choose from the following:</Typography>
-        <OptionTabs
-          label="CUDA"
-          content={cudaArray}
-          value={values[0]}
-          onChange={onChange}
-          idx={0}
-        />
-        <OptionTabs
-          label="OS"
-          content={osArray}
-          value={values[1]}
-          onChange={onChange}
-          idx={1}
-        />
-        <OptionTabs
-          label="Python"
-          content={pythonArray}
-          value={values[2]}
-          onChange={onChange}
-          idx={2}
-        />
+          <Typography variant="body1">Choose from the following:</Typography>
+          <OptionTabs
+            label="CUDA"
+            content={cudaArray}
+            value={values[0]}
+            onChange={onChange}
+            idx={0}
+          />
+          <OptionTabs
+            label="OS"
+            content={osArray}
+            value={values[1]}
+            onChange={onChange}
+            idx={1}
+          />
+          <OptionTabs
+            label="Python"
+            content={pythonArray}
+            value={values[2]}
+            onChange={onChange}
+            idx={2}
+          />
 
-        <Paper className={classes.paper} elevation={1}>
-          <Steps />
-          <IconButton className={classes.iconButton} onClick={copyToClipboard}>
-            {isOpen ? <AssignmentTurnedInIcon /> : <AssignmentIcon />}
-          </IconButton>
-        </Paper>
+          <Paper className={classes.paper} elevation={1}>
+            <Steps />
+            <IconButton
+              className={classes.iconButton}
+              onClick={copyToClipboard}
+            >
+              {isOpen ? <AssignmentTurnedInIcon /> : <AssignmentIcon />}
+            </IconButton>
+          </Paper>
 
-        <Snackbar
-          open={isOpen}
-          autoHideDuration={2000}
-          onClose={() => setIsOpen(false)}
-          message={msg}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "right",
-          }}
-        />
+          <Snackbar
+            open={isOpen}
+            autoHideDuration={2000}
+            onClose={() => setIsOpen(false)}
+            message={msg}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right",
+            }}
+          />
+        </Grid>
       </Grid>
     </Grid>
   );

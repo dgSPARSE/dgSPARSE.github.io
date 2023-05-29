@@ -12,19 +12,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Grid, Paper, Typography } from "@material-ui/core";
 
 import Home from "./Home";
-import Contact from "./Contact";
 import About from "./About";
-import Team from "./Contact";
+import Team from "./Team";
 import Installation from "./Installation";
+import Ecosystem from "./Ecosystem";
+import { fontSize } from "@material-ui/system";
 
 const useStyles = makeStyles((theme) => ({
-  navList: {
-    borderRadius: theme.spacing(1),
-    backgroundColor: "transparent",
-    position: "sticky",
-    alignSelf: "start",
-    top: "2.5em",
-  },
   navButton: {
     fontSize: theme.typography.h5.fontSize,
     width: "100%",
@@ -36,24 +30,24 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
   },
+  navBar: {
+    maxHeight: "300px",
+    fontSize: 18,
+  },
 }));
 
-export default function NavbarComp() {
+export default function Main() {
   const classes = useStyles();
   return (
     <Router>
       <Grid container spacing={2}>
         <Grid item xs={1}></Grid>
         <Grid item xs={10}>
-          <Navbar expand="lg">
+          <Navbar expand="lg" className={classes.navBar}>
             <Navbar.Brand href="/">dgSPARSE</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
-              <Nav
-                className="justify-content-end"
-                style={{ maxHeight: "100px" }}
-                navbarScroll
-              >
+              <Nav navbarScroll>
                 <Nav.Link as={Link} to="/about">
                   About
                 </Nav.Link>
@@ -86,7 +80,9 @@ export default function NavbarComp() {
           <Route path="/team">
             <Team />
           </Route>
-          <Route path="/eco">Eco</Route>
+          <Route path="/eco">
+            <Ecosystem />
+          </Route>
           <Route
             exact
             path="/doc"

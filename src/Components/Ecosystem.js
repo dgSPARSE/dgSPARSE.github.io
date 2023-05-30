@@ -13,6 +13,7 @@ import Row from "react-bootstrap/Row";
 import Image from "../img/dgsparse-logo.png";
 import "./Ecosystem.css";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +45,7 @@ export default function Ecosystem() {
   const GridCards = () => {
     return (
       <Row>
-        <Col>
+        <Col style={{ paddingLeft: 20, paddingRight: 20 }}>
           <Card className="card">
             <Card.Body>
               <Card.Title>Card title</Card.Title>
@@ -57,7 +58,7 @@ export default function Ecosystem() {
             </Card.Body>
           </Card>
         </Col>
-        <Col>
+        <Col style={{ paddingLeft: 20, paddingRight: 20 }}>
           <Card className="card">
             <Card.Body>
               <Card.Title>Card title</Card.Title>
@@ -70,7 +71,7 @@ export default function Ecosystem() {
             </Card.Body>
           </Card>
         </Col>
-        <Col>
+        <Col style={{ paddingLeft: 20, paddingRight: 20 }}>
           <Card className="card">
             <Card.Body>
               <Card.Title>Card title</Card.Title>
@@ -94,6 +95,7 @@ export default function Ecosystem() {
           <GridCards />
         </Grid>
       </Grid>
+      <Footer />
     </Grid>
   );
 }

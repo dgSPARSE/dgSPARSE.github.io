@@ -1,13 +1,33 @@
 import { Button, Grid, Paper, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  createTheme,
+  makeStyles,
+  responsiveFontSizes,
+  ThemeProvider,
+} from "@material-ui/core/styles";
 import React from "react";
 import Image from "../img/sparse_graph_2.jpg";
+
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    height: "22.8vh",
+    [theme.breakpoints.up("md")]: {
+      height: "22.8vh",
+    },
+    [theme.breakpoints.between("xs", "md")]: {
+      height: "27.8vh",
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: "36.8vh",
+    },
+
     display: "block",
+    position: "relative",
+    alignItems: "center",
+    justifyContent: "center",
   },
   img: {
     opacity: 0.25,
@@ -17,16 +37,12 @@ const useStyles = makeStyles((theme) => ({
     height: "inherit",
     objectFit: "cover",
   },
-  content: {
+  overlay: {
     position: "absolute",
     textAlign: "center",
-    [theme.breakpoints.up("sm")]: {
-      top: "20%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      top: "35%",
-    },
+    top: "55%",
     left: "50%",
+    color: "black",
     transform: "translate(-50%, -50%)",
   },
   title: {
@@ -40,32 +56,35 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Frame({ title, subtitle }) {
+export default function Frame({ title, subtitle, icon }) {
   const classes = useStyles();
-
   const Title = () => {
     return (
-      <Typography
-        className={classes.title}
-        variant="h3"
-        paragraph={true}
-        gutterBottom={true}
-      >
-        {title}
-      </Typography>
+      <ThemeProvider theme={theme}>
+        <Typography
+          className={classes.title}
+          paragraph={true}
+          variant="h3"
+          gutterBottom={true}
+        >
+          {title}
+        </Typography>
+      </ThemeProvider>
     );
   };
 
   const SubTitle = () => {
     return (
-      <Typography
-        className={classes.subtitle}
-        variant="h5"
-        paragraph={true}
-        gutterBottom={true}
-      >
-        {subtitle}
-      </Typography>
+      <ThemeProvider theme={theme}>
+        <Typography
+          className={classes.subtitle}
+          paragraph={true}
+          variant="h5"
+          gutterBottom={true}
+        >
+          {subtitle}
+        </Typography>
+      </ThemeProvider>
     );
   };
 
@@ -75,13 +94,13 @@ export default function Frame({ title, subtitle }) {
 
   return (
     <Grid>
-      <Paper className={classes.root} elevation={0}>
+      <Grid md={12} className={classes.root} elevation={0}>
         <BackgroundImage />
-        <div className={classes.content} elevation={5}>
+        <div className={classes.overlay} elevation={5}>
           <Title />
           <SubTitle />
         </div>
-      </Paper>
+      </Grid>
     </Grid>
   );
 }

@@ -7,11 +7,22 @@ import {
   Tab,
   Tabs,
   Typography,
+  Button,
 } from "@material-ui/core";
 import React from "react";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
 import Frame from "./Frame";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Divider from "@material-ui/core/Divider";
+import { classDeclaration } from "@babel/types";
+import Footer from "./Footer";
 
 // function to convert commands into object
 const createData = (cuda, os, python, ...steps) => {
@@ -39,11 +50,21 @@ const commands = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // paddingTop: theme.spacing(4),
+    paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(6),
+  },
+  title: {
+    fontFamily: "Libre Baskerville, serif",
+  },
+  install: {
+    justifyContent: "flex-start",
   },
   tabGrid: {
     paddingBottom: theme.spacing(1),
+  },
+  col: {
+    paddingTop: theme.spacing(5),
+    paddingLeft: theme.spacing(2),
   },
   paper: {
     marginTop: theme.spacing(3),
@@ -54,8 +75,15 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(1),
     },
-    backgroundColor: "#eeeeee",
+    boxShadow: "2px 5px 5px 2px rgba(0, 0, 0, 0.253)",
     position: "relative", // for thhe icon button to stick to the top right corner
+  },
+  shortcut: {
+    paddingRight: theme.spacing(4),
+    maxWidth: 360,
+  },
+  nested: {
+    paddingLeft: theme.spacing(5),
   },
   // gapsBottom: {
   //   paddingBottom: theme.spacing(2),
@@ -93,7 +121,7 @@ const OptionTabs = ({ content, label, onChange, value, idx }) => {
         <Tabs
           onChange={(e, newValue) => onChange(idx, newValue)}
           indicatorColor="primary"
-          textColor="primary"
+          textColor="info"
           value={value}
         >
           {content.map((c) => {
@@ -114,6 +142,39 @@ export default function Installation() {
   const cudaArray = [...new Set(commands.map((c) => c.cuda))].sort();
   const osArray = [...new Set(commands.map((c) => c.os))].sort();
   const pythonArray = [...new Set(commands.map((c) => c.python))].sort();
+
+  const scrollToRef = (ref) => {
+    ref.current.scrollIntoView();
+  };
+
+  const ShortCut = () => {
+    return (
+      <List
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+        subheader={
+          <ListSubheader component="div" id="nested-list-subheader">
+            <h5>ShorCuts</h5>
+          </ListSubheader>
+        }
+        className={classes.shortcut}
+      >
+        <Divider />
+        <ListItem button>
+          <ListItemText primary="Sent mail" />
+        </ListItem>
+        <ListItem button>
+          <ListItemText primary="Drafts" />
+        </ListItem>
+        <ListItem button>
+          <ListItemText primary="Inbox" />
+        </ListItem>
+        <ListItem button>
+          <ListItemText primary="Starred" className={classes.nested} />
+        </ListItem>
+      </List>
+    );
+  };
 
   // use values to find the installation steps
   const findSteps = (opts) => {
@@ -143,10 +204,23 @@ export default function Installation() {
     setSteps(findSteps(newValues)); // foce to update with new values immediately.
   };
 
+  const SubTitle = (title) => {
+    return (
+      <Typography
+        className={classes.title}
+        variant="h5"
+        paragraph={true}
+        gutterBottom={true}
+      >
+        Start Locally
+      </Typography>
+    );
+  };
+
   // minimum os requirement
   const MinimumRequirement = () => {
     return (
-      <Typography variant="body1">
+      <Typography variant="body1" classname={classes.install}>
         The minimum system requirement is:
         <ul>
           <li>All linux distribution no earlier than Ubuntu 16.04</li>
@@ -207,54 +281,66 @@ export default function Installation() {
     <Grid>
       <Frame title={title} subtitle={subtitle} />
       <Grid item container direction="row" justifyContent="space-around">
-        <Grid item xs={12} sm={8} className={classes.root} id="installation">
-          <MinimumRequirement />
+        <Grid item xs={12} md={10} sm={9} className={classes.root}>
+          <Row classname={classes.root}>
+            <Col xm={false} xs={4} style={{ textAlign: "left" }}>
+              <ShortCut />
+            </Col>
+            <Col xs={8} style={{ textAlign: "left" }} classname={classes.col}>
+              <SubTitle />
 
-          <Typography variant="body1">Choose from the following:</Typography>
-          <OptionTabs
-            label="CUDA"
-            content={cudaArray}
-            value={values[0]}
-            onChange={onChange}
-            idx={0}
-          />
-          <OptionTabs
-            label="OS"
-            content={osArray}
-            value={values[1]}
-            onChange={onChange}
-            idx={1}
-          />
-          <OptionTabs
-            label="Python"
-            content={pythonArray}
-            value={values[2]}
-            onChange={onChange}
-            idx={2}
-          />
+              <MinimumRequirement />
 
-          <Paper className={classes.paper} elevation={1}>
-            <Steps />
-            <IconButton
-              className={classes.iconButton}
-              onClick={copyToClipboard}
-            >
-              {isOpen ? <AssignmentTurnedInIcon /> : <AssignmentIcon />}
-            </IconButton>
-          </Paper>
+              <Typography variant="body1">
+                Choose from the following:
+              </Typography>
+              <OptionTabs
+                label="CUDA"
+                content={cudaArray}
+                value={values[0]}
+                onChange={onChange}
+                idx={0}
+              />
+              <OptionTabs
+                label="OS"
+                content={osArray}
+                value={values[1]}
+                onChange={onChange}
+                idx={1}
+              />
+              <OptionTabs
+                label="Python"
+                content={pythonArray}
+                value={values[2]}
+                onChange={onChange}
+                idx={2}
+              />
 
-          <Snackbar
-            open={isOpen}
-            autoHideDuration={2000}
-            onClose={() => setIsOpen(false)}
-            message={msg}
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "right",
-            }}
-          />
+              <Paper className={classes.paper} elevation={1}>
+                <Steps />
+                <IconButton
+                  className={classes.iconButton}
+                  onClick={copyToClipboard}
+                >
+                  {isOpen ? <AssignmentTurnedInIcon /> : <AssignmentIcon />}
+                </IconButton>
+              </Paper>
+
+              <Snackbar
+                open={isOpen}
+                autoHideDuration={2000}
+                onClose={() => setIsOpen(false)}
+                message={msg}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+              />
+            </Col>
+          </Row>
         </Grid>
       </Grid>
+      <Footer />
     </Grid>
   );
 }

@@ -8,10 +8,19 @@ import { grey } from "@material-ui/core/colors";
 import Grid from "@material-ui/core/Grid";
 import Carousel from "react-bootstrap/Carousel";
 import Frame from "./Frame";
+import ReactMarkdown from "react-markdown";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(1),
+    paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(6),
   },
   img: {
@@ -31,41 +40,93 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function About() {
+  const classes = useStyles();
+
   const title = "About";
   const subtitle = "Highlighted papers and designs in dgSPARSE";
+
+  const ShortCut = () => {
+    return (
+      <List
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+        subheader={
+          <ListSubheader component="div" id="nested-list-subheader">
+            <h5>ShorCuts</h5>
+          </ListSubheader>
+        }
+        className={classes.shortcut}
+      >
+        <Divider />
+        <ListItem button>
+          <ListItemText primary="Sent mail" />
+        </ListItem>
+        <ListItem button>
+          <ListItemText primary="Drafts" />
+        </ListItem>
+        <ListItem button>
+          <ListItemText primary="Inbox" />
+        </ListItem>
+        <ListItem button>
+          <ListItemText primary="Starred" className={classes.nested} />
+        </ListItem>
+      </List>
+    );
+  };
   return (
     <Grid>
       <Frame title={title} subtitle={subtitle} />
       <Grid item container direction="row" justifyContent="space-around">
-        <Grid item xs={12} sm={8}>
-          <Carousel variant="dark">
-            <Carousel.Item>
-              <img className="d-block w-100" src={Image1} alt="First slide" />
-              <Carousel.Caption>
-                <h5>First slide label</h5>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={Image2} alt="Second slide" />
-              <Carousel.Caption>
-                <h5>Second slide label</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={Image3} alt="Third slide" />
-              <Carousel.Caption>
-                <h5>Third slide label</h5>
-                <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
+        <Grid item xs={12} md={10} sm={9} className={classes.root}>
+          <Row classname={classes.root}>
+            <Col xm={false} xs={4} style={{ textAlign: "left" }}>
+              <ShortCut />
+            </Col>
+            <Col xs={8} style={{ textAlign: "left" }} classname={classes.col}>
+              <Carousel variant="dark">
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src={Image1}
+                    alt="First slide"
+                  />
+                  <Carousel.Caption>
+                    <h5>First slide label</h5>
+                    <p>
+                      Nulla vitae elit libero, a pharetra augue mollis interdum.
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src={Image2}
+                    alt="Second slide"
+                  />
+                  <Carousel.Caption>
+                    <h5>Second slide label</h5>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src={Image3}
+                    alt="Third slide"
+                  />
+                  <Carousel.Caption>
+                    <h5>Third slide label</h5>
+                    <p>
+                      Praesent commodo cursus magna, vel scelerisque nisl
+                      consectetur.
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              </Carousel>
+            </Col>
+          </Row>
         </Grid>
       </Grid>
     </Grid>

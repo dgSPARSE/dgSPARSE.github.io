@@ -15,13 +15,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      height: "22.8vh",
+      height: "23.8vh",
     },
-    [theme.breakpoints.between("xs", "md")]: {
-      height: "27.8vh",
+    [theme.breakpoints.between("sm", "md")]: {
+      height: "28.8vh",
     },
-    [theme.breakpoints.down("xs")]: {
-      height: "36.8vh",
+    [theme.breakpoints.down("sm")]: {
+      height: "35.8vh",
     },
 
     display: "block",
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   overlay: {
     position: "absolute",
     textAlign: "center",
-    top: "55%",
+    top: "50%",
     left: "50%",
     color: "black",
     transform: "translate(-50%, -50%)",

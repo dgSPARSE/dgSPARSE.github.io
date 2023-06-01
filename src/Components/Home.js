@@ -33,7 +33,7 @@ export default function Home() {
     <Grid>
       <Header />
       <Grid item container direction="row" justifyContent="space-around">
-        <Grid item xs={12} sm={8} className={classes.content}>
+        <Grid item sm={12} md={10} lg={8} className={classes.content}>
           <Highlights />
         </Grid>
       </Grid>

@@ -1,15 +1,26 @@
 import { Button, Grid, Paper, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+} from "@material-ui/core/styles";
 import React from "react";
 import Image from "../img/sparse_graph_1.jpg";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import GitHubIcon from "@material-ui/icons/GitHub";
+
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     height: "61.8vh",
     display: "block",
+    position: "relative",
+    alignItems: "center",
+    justifyContent: "center",
   },
   img: {
     opacity: 0.25,
@@ -19,16 +30,12 @@ const useStyles = makeStyles((theme) => ({
     height: "inherit",
     objectFit: "cover",
   },
+
   content: {
     position: "absolute",
     textAlign: "center",
-    [theme.breakpoints.up("sm")]: {
-      top: "35%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      top: "35%",
-    },
     left: "50%",
+    top: "50%",
     transform: "translate(-50%, -50%)",
   },
   title: {
@@ -49,27 +56,31 @@ export default function Header() {
 
   const Title = () => {
     return (
-      <Typography
-        className={classes.title}
-        variant="h1"
-        paragraph={true}
-        gutterBottom={true}
-      >
-        dgSPARSE
-      </Typography>
+      <ThemeProvider theme={theme}>
+        <Typography
+          className={classes.title}
+          variant="h1"
+          paragraph={true}
+          gutterBottom={true}
+        >
+          dgSPARSE
+        </Typography>
+      </ThemeProvider>
     );
   };
 
   const SubTitle = () => {
     return (
-      <Typography
-        className={classes.subtitle}
-        variant="h5"
-        paragraph={true}
-        gutterBottom={true}
-      >
-        Easy and Fast Sparse Graph Processing
-      </Typography>
+      <ThemeProvider theme={theme}>
+        <Typography
+          className={classes.subtitle}
+          variant="h5"
+          paragraph={true}
+          gutterBottom={true}
+        >
+          Easy and Fast Sparse Graph Processing
+        </Typography>
+      </ThemeProvider>
     );
   };
 

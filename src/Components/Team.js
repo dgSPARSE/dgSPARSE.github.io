@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Team() {
   const classes = useStyles();
-  const title = "The Core dgSPARSE Team";
+  const title = "Our Core Team";
   const subtitle =
     "We are ethusiastic about optimizing applications related to sparsity and making them faster and more accessible.";
 
@@ -95,7 +95,12 @@ export default function Team() {
           />
         </Col>
         <Col item xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
-          <TeamBox name="Hong Ke" title="Core Contributor" />
+          <TeamBox
+            name="Guyue Huang"
+            title="Core Contributor"
+            href="https://hgyhungry.github.io/"
+            classname={classes.teambox}
+          />
         </Col>
         <Col item xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
           <TeamBox
@@ -106,12 +111,7 @@ export default function Team() {
           />
         </Col>
         <Col item xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
-          <TeamBox
-            name="Guyue Huang"
-            title="Core Contributor"
-            href="https://hgyhungry.github.io/"
-            classname={classes.teambox}
-          />
+          <TeamBox name="Hong Ke" title="Core Contributor" />
         </Col>
         <Col item xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
           <TeamBox

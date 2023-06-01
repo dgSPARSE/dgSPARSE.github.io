@@ -14,8 +14,12 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(2),
   },
   card: {
-    maxWidth: 345,
+    borderWidth: "0px",
     height: "100%",
+    boxShadow: "1px 2px 2px 2px rgba(239, 239, 240, 1)",
+    "&:hover": {
+      boxShadow: "5px 10px 20px 1px rgba(0, 0, 0, 0.253)",
+    },
   },
   cardArea: {
     height: "100%",
@@ -94,12 +98,12 @@ export default function Highlights({ innerRef }) {
         className={classes.grid}
         container
         direction="row"
-        justifyContent="space-around"
+        justifyContent="center"
         alignItems="stretch"
         spacing={3}
       >
         {cards.map((card, idx) => (
-          <Grid key={idx} item xs={12} sm={4}>
+          <Grid key={idx} item xs={10} sm={6} md={4}>
             <CharacteristicCard {...card} />
           </Grid>
         ))}

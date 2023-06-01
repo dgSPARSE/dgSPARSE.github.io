@@ -8,6 +8,8 @@ import {
   Tabs,
   Typography,
   Button,
+  Card,
+  CardContent,
 } from "@material-ui/core";
 import React from "react";
 import AssignmentIcon from "@material-ui/icons/Assignment";
@@ -23,6 +25,8 @@ import Row from "react-bootstrap/Row";
 import Divider from "@material-ui/core/Divider";
 import { classDeclaration } from "@babel/types";
 import Footer from "./Footer";
+import Container from "react-bootstrap/Container";
+import LinkIcon from "@material-ui/icons/Link";
 
 // function to convert commands into object
 const createData = (cuda, os, python, ...steps) => {
@@ -52,6 +56,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(6),
+  },
+  list: {
+    width: "100%",
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper,
   },
   title: {
     fontFamily: "Libre Baskerville, serif",
@@ -101,6 +110,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
+
 const OptionTabs = ({ content, label, onChange, value, idx }) => {
   const classes = useStyles();
 
@@ -149,30 +162,31 @@ export default function Installation() {
 
   const ShortCut = () => {
     return (
-      <List
-        component="nav"
-        aria-labelledby="nested-list-subheader"
-        subheader={
-          <ListSubheader component="div" id="nested-list-subheader">
-            <h5>ShorCuts</h5>
-          </ListSubheader>
-        }
-        className={classes.shortcut}
+      <Grid
+        item
+        xs={11}
+        md={4}
+        // style={{ textAlign: "left" }}
+        // alignItems="center"
       >
+        <List component="nav" aria-label="main mailbox folders">
+          <ListItem button>
+            <ListItemText
+              primary="ShortCut"
+              primaryTypographyProps={{ variant: "h6" }}
+            />
+          </ListItem>
+        </List>
         <Divider />
-        <ListItem button>
-          <ListItemText primary="Sent mail" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Drafts" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Inbox" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Starred" className={classes.nested} />
-        </ListItem>
-      </List>
+        <List component="nav" aria-label="secondary mailbox folders">
+          <ListItem button>
+            <ListItemText primary="Trash" />
+          </ListItem>
+          <ListItemLink href="#simple-list">
+            <ListItemText primary="Spam" />
+          </ListItemLink>
+        </List>
+      </Grid>
     );
   };
 
@@ -280,66 +294,72 @@ export default function Installation() {
   return (
     <Grid>
       <Frame title={title} subtitle={subtitle} />
-      <Grid item container direction="row" justifyContent="space-around">
-        <Grid item xs={12} md={10} sm={9} className={classes.root}>
-          <Row classname={classes.root}>
-            <Col xm={false} xs={4} style={{ textAlign: "left" }}>
-              <ShortCut />
-            </Col>
-            <Col xs={8} style={{ textAlign: "left" }} classname={classes.col}>
-              <SubTitle />
+      <Container className={classes.root}>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="stretch"
+          spacing={3}
+        >
+          <ShortCut />
+          <Grid
+            item
+            xs={11}
+            md={8}
+            style={{ textAlign: "left" }}
+            classname={classes.col}
+          >
+            <SubTitle />
 
-              <MinimumRequirement />
+            <MinimumRequirement />
 
-              <Typography variant="body1">
-                Choose from the following:
-              </Typography>
-              <OptionTabs
-                label="CUDA"
-                content={cudaArray}
-                value={values[0]}
-                onChange={onChange}
-                idx={0}
-              />
-              <OptionTabs
-                label="OS"
-                content={osArray}
-                value={values[1]}
-                onChange={onChange}
-                idx={1}
-              />
-              <OptionTabs
-                label="Python"
-                content={pythonArray}
-                value={values[2]}
-                onChange={onChange}
-                idx={2}
-              />
+            <Typography variant="body1">Choose from the following:</Typography>
+            <OptionTabs
+              label="CUDA"
+              content={cudaArray}
+              value={values[0]}
+              onChange={onChange}
+              idx={0}
+            />
+            <OptionTabs
+              label="OS"
+              content={osArray}
+              value={values[1]}
+              onChange={onChange}
+              idx={1}
+            />
+            <OptionTabs
+              label="Python"
+              content={pythonArray}
+              value={values[2]}
+              onChange={onChange}
+              idx={2}
+            />
 
-              <Paper className={classes.paper} elevation={1}>
-                <Steps />
-                <IconButton
-                  className={classes.iconButton}
-                  onClick={copyToClipboard}
-                >
-                  {isOpen ? <AssignmentTurnedInIcon /> : <AssignmentIcon />}
-                </IconButton>
-              </Paper>
+            <Paper className={classes.paper} elevation={1}>
+              <Steps />
+              <IconButton
+                className={classes.iconButton}
+                onClick={copyToClipboard}
+              >
+                {isOpen ? <AssignmentTurnedInIcon /> : <AssignmentIcon />}
+              </IconButton>
+            </Paper>
 
-              <Snackbar
-                open={isOpen}
-                autoHideDuration={2000}
-                onClose={() => setIsOpen(false)}
-                message={msg}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "right",
-                }}
-              />
-            </Col>
-          </Row>
+            <Snackbar
+              open={isOpen}
+              autoHideDuration={2000}
+              onClose={() => setIsOpen(false)}
+              message={msg}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+            />
+          </Grid>
         </Grid>
-      </Grid>
+      </Container>
       <Footer />
     </Grid>
   );

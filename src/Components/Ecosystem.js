@@ -15,7 +15,6 @@ import Carousel from "react-bootstrap/Carousel";
 import Frame from "./Frame";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Image from "../img/dgsparse-logo.png";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import Footer from "./Footer";
 import Container from "react-bootstrap/Container";

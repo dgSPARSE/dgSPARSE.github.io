@@ -38,13 +38,30 @@ const useStyles = makeStyles((theme) => ({
     top: "50%",
     transform: "translate(-50%, -50%)",
   },
+
   title: {
     fontFamily: "Libre Baskerville, serif",
+    [theme.typography.h1]: {
+      [theme.breakpoints.up("md")]: {
+        fontSize: "95",
+      },
+      [theme.breakpoints.down("md")]: {
+        fontSize: "75",
+      },
+    },
     // fontWeight: "bold",
   },
   subtitle: {
     fontFamily: "Libre Baskerville, serif",
     fontWeight: "bold",
+    [theme.typography.h5]: {
+      [theme.breakpoints.up("md")]: {
+        fontSize: "24",
+      },
+      [theme.breakpoints.down("md")]: {
+        fontSize: "20",
+      },
+    },
   },
   button: {
     margin: theme.spacing(2),
@@ -57,16 +74,14 @@ export default function Header() {
 
   const Title = () => {
     return (
-      <ThemeProvider theme={theme}>
-        <Typography
-          className={classes.title}
-          variant="h1"
-          paragraph={true}
-          gutterBottom={true}
-        >
-          dgSPARSE
-        </Typography>
-      </ThemeProvider>
+      <Typography
+        className={classes.title}
+        paragraph={true}
+        variant="h1"
+        gutterBottom={true}
+      >
+        dgSPARSE
+      </Typography>
     );
   };
 
@@ -94,7 +109,7 @@ export default function Header() {
         size="large"
         variant="contained"
         startIcon={<GetAppIcon />}
-        href="/installation"
+        href="#installation"
       >
         Install
       </Button>
@@ -128,7 +143,6 @@ export default function Header() {
           <Title />
           <SubTitle />
           <div>
-            <BtnInstall />
             <BtnGithub />
           </div>
         </div>

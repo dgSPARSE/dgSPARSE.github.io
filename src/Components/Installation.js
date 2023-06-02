@@ -54,8 +54,8 @@ const commands = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(6),
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(5),
   },
   list: {
     width: "100%",
@@ -63,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
   title: {
+    paddingTop: theme.spacing(5),
     fontFamily: "Libre Baskerville, serif",
   },
   install: {
@@ -73,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
   col: {
     paddingTop: theme.spacing(5),
-    paddingLeft: theme.spacing(2),
+    marginTop: "50px",
   },
   paper: {
     marginTop: theme.spacing(3),
@@ -84,15 +85,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(1),
     },
-    boxShadow: "2px 5px 5px 2px rgba(0, 0, 0, 0.253)",
+    boxShadow: "1px 2px 2px 1px rgba(0, 0, 0, 0.253)",
     position: "relative", // for thhe icon button to stick to the top right corner
-  },
-  shortcut: {
-    paddingRight: theme.spacing(4),
-    maxWidth: 360,
-  },
-  nested: {
-    paddingLeft: theme.spacing(5),
   },
   // gapsBottom: {
   //   paddingBottom: theme.spacing(2),
@@ -107,6 +101,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontFamily: "Rubik, sans-serif",
+  },
+  gridcard: {
+    paddingTop: theme.spacing(3),
   },
 }));
 
@@ -180,10 +177,10 @@ export default function Installation() {
         <Divider />
         <List component="nav" aria-label="secondary mailbox folders">
           <ListItem button>
-            <ListItemText primary="Trash" />
+            <ListItemText primary="Start Locally" />
           </ListItem>
           <ListItemLink href="#simple-list">
-            <ListItemText primary="Spam" />
+            <ListItemText primary="Build From Source" />
           </ListItemLink>
         </List>
       </Grid>
@@ -310,7 +307,9 @@ export default function Installation() {
             style={{ textAlign: "left" }}
             classname={classes.col}
           >
-            <SubTitle />
+            <Grid item classname={classes.gridcard}>
+              <SubTitle />
+            </Grid>
 
             <MinimumRequirement />
 

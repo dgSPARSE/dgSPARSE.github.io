@@ -22,8 +22,8 @@ import Container from "react-bootstrap/Container";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(5),
-    paddingBottom: theme.spacing(6),
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(5),
   },
   grid: {
     paddingTop: theme.spacing(2),
@@ -74,12 +74,11 @@ export default function Ecosystem() {
           <Card className={classes.card}>
             <CardContent className={classes.cardArea}>
               <Typography variant="h5" className={classes.text}>
-                Card title
+                Torchsparse
               </Typography>
               <Typography variant="body1" className={classes.text}>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+                TorchSparse is a high-performance neural network library for
+                point cloud processing.
               </Typography>
               <GithubBtn href="https://github.com/mit-han-lab/torchsparse" />
             </CardContent>
@@ -89,14 +88,15 @@ export default function Ecosystem() {
           <Card className={classes.card}>
             <CardContent className={classes.cardArea}>
               <Typography variant="h5" className={classes.text}>
-                Card title
+                CogDL
               </Typography>
               <Typography variant="body1" className={classes.text}>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+                CogDL is an extensive Toolkit for Graph Neural Networks, which
+                provides lots of effective and efficient solutions for
+                real-world problems especially those involved in large-scale
+                data.
               </Typography>
-              <GithubBtn href="https://github.com/mit-han-lab/torchsparse" />
+              <GithubBtn href="https://github.com/THUDM/CogDL" />
             </CardContent>
           </Card>
         </Grid>
@@ -104,13 +104,13 @@ export default function Ecosystem() {
           <Card className={classes.card}>
             <CardContent className={classes.cardArea}>
               <Typography variant="h5" className={classes.text}>
-                Card title
+                PyG
               </Typography>
               <Typography variant="body1" className={classes.text}>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content.
+                PyG is the ultimate library for Graph Neural Networks, helping
+                to build graph learning pipelines with ease.
               </Typography>
-              <GithubBtn href="https://github.com/mit-han-lab/torchsparse" />
+              <GithubBtn href="https://github.com/pyg-team/pytorch_geometric" />
             </CardContent>
           </Card>
         </Grid>
@@ -120,7 +120,7 @@ export default function Ecosystem() {
   return (
     <Grid>
       <Frame title={title} subtitle={subtitle} />
-      <Container className="my-auto">
+      <Container className={classes.root}>
         <GridCards />
       </Container>
       <Footer />

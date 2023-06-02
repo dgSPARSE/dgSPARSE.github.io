@@ -2,7 +2,11 @@ import { Card, CardContent, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane, faGem } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPaperPlane,
+  faGem,
+  faMicrochip,
+} from "@fortawesome/free-solid-svg-icons";
 import UpdateIcon from "@material-ui/icons/Update";
 
 const useStyles = makeStyles((theme) => ({
@@ -52,19 +56,19 @@ export default function Highlights({ innerRef }) {
   // can set icon = null if you haven't found a new icon
   const cards = [
     createData(
-      "Uniform Interface",
-      "We apply a wrapper to make the kernel having the same interface as cuSPARSE.",
-      <FontAwesomeIcon className={classes.icon} icon={faGem} />
-    ),
-    createData(
       "Easy to Use",
-      "You can load our library simply by using the .so file provided.",
+      "We provide user-friendly APIs that following the principles of PyTorch.",
       <FontAwesomeIcon className={classes.icon} icon={faPaperPlane} />
     ),
     createData(
-      "Up to Date",
+      "Optimized Designs",
+      "Many of our designs have been accepted by well-known international conferences.",
+      <FontAwesomeIcon className={classes.icon} icon={faGem} />
+    ),
+    createData(
+      "High Performance",
       "We maintain and update high-performance sparse kernels for new GPU's architecture.",
-      <UpdateIcon className={classes.icon} />
+      <FontAwesomeIcon className={classes.icon} icon={faMicrochip} />
     ),
   ];
 

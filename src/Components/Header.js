@@ -78,7 +78,8 @@ export default function Header() {
           paragraph={true}
           gutterBottom={true}
         >
-          Easy and Fast Sparse Graph Processing
+          Fast and Efficient Processing for Various Machine Learning
+          Applications with Diverse Sparsity
         </Typography>
       </ThemeProvider>
     );

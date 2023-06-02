@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontFamily: "Libre Baskerville, serif",
+    // fontWeight: "bold",
   },
   subtitle: {
     fontFamily: "Libre Baskerville, serif",

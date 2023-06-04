@@ -108,6 +108,7 @@ export default function About() {
           alignItems="stretch"
           spacing={3}
         >
+          <ShortCut />
           <Grid
             item
             xs={11}
@@ -190,7 +191,6 @@ export default function About() {
               </Card>
             </Grid>
           </Grid>
-          <ShortCut />
         </Grid>
       </Container>
       <Footer />

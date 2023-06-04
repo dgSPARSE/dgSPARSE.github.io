@@ -42,11 +42,11 @@ const useStyles = makeStyles((theme) => ({
   title: {
     fontFamily: "Libre Baskerville, serif",
     [theme.typography.h1]: {
-      [theme.breakpoints.up("md")]: {
+      [theme.breakpoints.up("sm")]: {
         fontSize: "95",
       },
-      [theme.breakpoints.down("md")]: {
-        fontSize: "75",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "83",
       },
     },
     // fontWeight: "bold",
@@ -55,10 +55,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Libre Baskerville, serif",
     fontWeight: "bold",
     [theme.typography.h5]: {
-      [theme.breakpoints.up("md")]: {
+      [theme.breakpoints.up("sm")]: {
         fontSize: "24",
       },
-      [theme.breakpoints.down("md")]: {
+      [theme.breakpoints.down("sm")]: {
         fontSize: "20",
       },
     },

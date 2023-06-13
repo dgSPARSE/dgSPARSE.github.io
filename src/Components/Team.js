@@ -80,7 +80,7 @@ export default function Team() {
   const TeamBoxes = () => {
     return (
       <Row
-        className="justify-content-md-center"
+        className="justify-content-md-center align-items-sm-stretch"
         style={{ paddingTop: 20, paddingBottom: 20 }}
       >
         <Col xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>

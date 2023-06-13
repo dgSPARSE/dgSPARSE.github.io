@@ -1,5 +1,5 @@
 import { Link, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
+import React, { useRef } from "react";
 import Image1 from "../img/hyper-overview.png";
 import Image2 from "../img/sparse-conv.png";
 import Image3 from "../img/sparse_graph_3.jpg";
@@ -67,6 +67,14 @@ export default function About() {
   const title = "About";
   const subtitle = "Highlighted papers and designs in dgSPARSE";
 
+  const hgnnRef = useRef(null);
+  const pcRef = useRef(null);
+
+  // when click the button, scroll into the view
+  const scrollToRef = (ref) => {
+    ref.current.scrollIntoView();
+  };
+
   const ShortCut = () => {
     return (
       <Grid
@@ -77,7 +85,7 @@ export default function About() {
         // alignItems="center"
       >
         <List component="nav" aria-label="main mailbox folders">
-          <ListItem button>
+          <ListItem>
             <ListItemText
               primary="ShortCut"
               primaryTypographyProps={{ variant: "h6" }}
@@ -86,12 +94,12 @@ export default function About() {
         </List>
         <Divider />
         <List component="nav" aria-label="secondary mailbox folders">
-          <ListItem button>
+          <ListItem button onClick={() => scrollToRef(hgnnRef)}>
             <ListItemText primary="Hypergraph Neural Network" />
           </ListItem>
-          <ListItemLink href="#simple-list">
+          <ListItem button onClick={() => scrollToRef(pcRef)}>
             <ListItemText primary="Pointcloud Sparse Convolution" />
-          </ListItemLink>
+          </ListItem>
         </List>
       </Grid>
     );
@@ -117,13 +125,9 @@ export default function About() {
             classname={classes.col}
           >
             <Grid className={classes.gridcard}>
-              <Card xs={11} md={10} className={classes.card}>
+              <Card xs={11} md={10} className={classes.card} ref={hgnnRef}>
                 <CardActionArea>
-                  <CardMedia
-                    image={Image1}
-                    title="Contemplative Reptile"
-                    className={classes.img}
-                  />
+                  <CardMedia image={Image1} className={classes.img} />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                       HyperGraph Neural Network Acceleration
@@ -155,13 +159,9 @@ export default function About() {
               </Card>
             </Grid>
             <Grid className={classes.gridcard}>
-              <Card xs={11} md={8} className={classes.card}>
+              <Card xs={11} md={8} className={classes.card} ref={pcRef}>
                 <CardActionArea>
-                  <CardMedia
-                    image={Image2}
-                    title="Contemplative Reptile"
-                    className={classes.img}
-                  />
+                  <CardMedia image={Image2} className={classes.img} />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                       Pointcloud Sparse Convolution

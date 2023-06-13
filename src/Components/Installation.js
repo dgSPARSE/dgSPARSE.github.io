@@ -11,7 +11,7 @@ import {
   Card,
   CardContent,
 } from "@material-ui/core";
-import React from "react";
+import React, { useRef } from "react";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
 import Frame from "./Frame";
@@ -107,10 +107,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
-
 const OptionTabs = ({ content, label, onChange, value, idx }) => {
   const classes = useStyles();
 
@@ -153,6 +149,9 @@ export default function Installation() {
   const osArray = [...new Set(commands.map((c) => c.os))].sort();
   const pythonArray = [...new Set(commands.map((c) => c.python))].sort();
 
+  const localRef = useRef(null);
+
+  // when click the button, scroll into the view
   const scrollToRef = (ref) => {
     ref.current.scrollIntoView();
   };
@@ -167,7 +166,7 @@ export default function Installation() {
         // alignItems="center"
       >
         <List component="nav" aria-label="main mailbox folders">
-          <ListItem button>
+          <ListItem>
             <ListItemText
               primary="ShortCut"
               primaryTypographyProps={{ variant: "h6" }}
@@ -176,12 +175,12 @@ export default function Installation() {
         </List>
         <Divider />
         <List component="nav" aria-label="secondary mailbox folders">
-          <ListItem button>
+          <ListItem button onClick={() => scrollToRef(localRef)}>
             <ListItemText primary="Start Locally" />
           </ListItem>
-          <ListItemLink href="#simple-list">
+          <ListItem button>
             <ListItemText primary="Build From Source" />
-          </ListItemLink>
+          </ListItem>
         </List>
       </Grid>
     );
@@ -307,7 +306,7 @@ export default function Installation() {
             style={{ textAlign: "left" }}
             classname={classes.col}
           >
-            <Grid item classname={classes.gridcard}>
+            <Grid item classname={classes.gridcard} ref={localRef}>
               <SubTitle />
             </Grid>
 

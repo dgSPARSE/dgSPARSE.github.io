@@ -33,7 +33,18 @@ const useStyles = makeStyles((theme) => ({
   },
   img: {
     margin: "auto",
-    height: 300,
+    [theme.breakpoints.up("md")]: {
+      height: 300,
+    },
+    [theme.breakpoints.between("xs", "md")]: {
+      height: 250,
+    },
+    [theme.breakpoints.between("sm", "xs")]: {
+      height: 180,
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: 150,
+    },
     objectFit: "contain",
   },
   citation: {
@@ -127,7 +138,11 @@ export default function About() {
             <Grid className={classes.gridcard}>
               <Card xs={11} md={10} className={classes.card} ref={hgnnRef}>
                 <CardActionArea>
-                  <CardMedia image={Image1} className={classes.img} />
+                  <CardMedia
+                    component="img"
+                    image={Image1}
+                    className={classes.img}
+                  />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                       HyperGraph Neural Network Acceleration
@@ -161,7 +176,11 @@ export default function About() {
             <Grid className={classes.gridcard}>
               <Card xs={11} md={8} className={classes.card} ref={pcRef}>
                 <CardActionArea>
-                  <CardMedia image={Image2} className={classes.img} />
+                  <CardMedia
+                    component="img"
+                    image={Image2}
+                    className={classes.img}
+                  />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                       Pointcloud Sparse Convolution

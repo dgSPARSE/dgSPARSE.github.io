@@ -80,10 +80,10 @@ export default function Team() {
   const TeamBoxes = () => {
     return (
       <Row
-        className="justify-content-md-center align-items-stretch"
+        className="justify-content-center align-items-stretch"
         style={{ paddingTop: 20, paddingBottom: 20 }}
       >
-        <Col xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
+        <Col xs={9} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
           <TeamBox
             name="Guohao Dai"
             title="Core Lead"
@@ -92,7 +92,7 @@ export default function Team() {
             classname={classes.teambox}
           />
         </Col>
-        <Col item xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
+        <Col item xs={9} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
           <TeamBox
             name="Zhongming Yu"
             title="Developing Lead"
@@ -101,7 +101,7 @@ export default function Team() {
             classname={classes.teambox}
           />
         </Col>
-        <Col item xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
+        <Col item xs={9} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
           <TeamBox
             name="Guyue Huang"
             title="Core Contributor"
@@ -110,7 +110,7 @@ export default function Team() {
             classname={classes.teambox}
           />
         </Col>
-        <Col item xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
+        <Col item xs={9} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
           <TeamBox
             name="Genghan Zhang"
             title="Core Contributor"
@@ -119,7 +119,7 @@ export default function Team() {
             classname={classes.teambox}
           />
         </Col>
-        <Col item xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
+        <Col item xs={9} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
           <TeamBox
             name="Ke Hong"
             img={Hongke}
@@ -127,7 +127,7 @@ export default function Team() {
             title="Core Contributor"
           />
         </Col>
-        <Col item xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
+        <Col item xs={9} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
           <TeamBox
             name="Hengrui Zhang"
             title="Core Contributor"
@@ -136,7 +136,7 @@ export default function Team() {
             classname={classes.teambox}
           />
         </Col>
-        <Col item xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
+        <Col item xs={9} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
           <TeamBox
             name="Tianyu Fu"
             title="Contributor"
@@ -145,7 +145,7 @@ export default function Team() {
             classname={classes.teambox}
           />
         </Col>
-        <Col item xs={6} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
+        <Col item xs={9} sm={6} md={4} lg={3} style={{ paddingTop: 20 }}>
           <TeamBox
             name="Yu Wang"
             title="Advisor"

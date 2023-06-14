@@ -137,37 +137,38 @@ export default function About() {
           >
             <Grid className={classes.gridcard}>
               <Card xs={11} md={10} className={classes.card} ref={hgnnRef}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    image={Image1}
-                    className={classes.img}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      HyperGraph Neural Network Acceleration
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      Hypergraph Neural Network (HyperGNN) is an emerging type
-                      of Graph Neural Networks (GNNs) that can utilize
-                      hyperedges to model high-order relationships among
-                      vertices. Current GNN frameworks fail to fuse two
-                      message-passing steps from vertices to hyperedges and
-                      hyperedges to vertices, leading to high latency and
-                      redundant memory consumption. By enabling efficient fusion
-                      for HyperGNNs, our HyperGef techinque achieves 2.25× to
-                      3.99× end-to-end speedup on various HyperGNN models
-                      compared with state-of-the-art frameworks like DGL and
-                      PyG.
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
+                <CardMedia
+                  component="img"
+                  image={Image1}
+                  className={classes.img}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    HyperGraph Neural Network Acceleration
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    Hypergraph Neural Network (HyperGNN) is an emerging type of
+                    Graph Neural Networks (GNNs) that can utilize hyperedges to
+                    model high-order relationships among vertices. Current GNN
+                    frameworks fail to fuse two message-passing steps from
+                    vertices to hyperedges and hyperedges to vertices, leading
+                    to high latency and redundant memory consumption. By
+                    enabling efficient fusion for HyperGNNs, our HyperGef
+                    techinque achieves 2.25× to 3.99× end-to-end speedup on
+                    various HyperGNN models compared with state-of-the-art
+                    frameworks like DGL and PyG.
+                  </Typography>
+                </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary">
+                  <Button
+                    size="small"
+                    color="primary"
+                    href="https://proceedings.mlsys.org/paper_files/paper/2023/file/c0987e6b6da2428e8cd43efa74790ccb-Paper-mlsys2023.pdf"
+                  >
                     Learn More
                   </Button>
                 </CardActions>
@@ -175,35 +176,37 @@ export default function About() {
             </Grid>
             <Grid className={classes.gridcard}>
               <Card xs={11} md={8} className={classes.card} ref={pcRef}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    image={Image2}
-                    className={classes.img}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Pointcloud Sparse Convolution
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      Sparse convolution is the key operator in widely-used 3D
-                      point cloud networks. However, due to the high sparsity of
-                      voxelized input point cloud data, three main challenges
-                      need to be solved for efficient sparse convolution in
-                      current 3D point cloud engines, like memory
-                      under-utilization, input dynamics, etc. To tackle these
-                      challenges, we propose PCEngine which achieves 1.81× and
-                      1.64× speedup on average for sparse convolution operation
-                      and end-to-end point cloud networks, respectively.
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
+                <CardMedia
+                  component="img"
+                  image={Image2}
+                  className={classes.img}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Pointcloud Sparse Convolution
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    Sparse convolution is the key operator in widely-used 3D
+                    point cloud networks. However, due to the high sparsity of
+                    voxelized input point cloud data, three main challenges need
+                    to be solved for efficient sparse convolution in current 3D
+                    point cloud engines, like memory under-utilization, input
+                    dynamics, etc. To tackle these challenges, we propose
+                    PCEngine which achieves 1.81× and 1.64× speedup on average
+                    for sparse convolution operation and end-to-end point cloud
+                    networks, respectively.
+                  </Typography>
+                </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary">
+                  <Button
+                    size="small"
+                    color="primary"
+                    href="https://proceedings.mlsys.org/paper_files/paper/2023/file/bd3303e587689af8869a92233e1e0ac9-Paper-mlsys2023.pdf"
+                  >
                     Learn More
                   </Button>
                 </CardActions>
